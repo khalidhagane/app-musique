@@ -2,13 +2,15 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import Home from './screens/Home';
+import PlayListe from './screens/PlayListe';
 import Favorite from './screens/Favorite';
 import Settings from './screens/Settings';
+import Music from './screens/Music';
+
 
 const Tab = createBottomTabNavigator();
 
-const AppNavigator = () => {
+const Navigator = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -16,12 +18,14 @@ const AppNavigator = () => {
           tabBarIcon: ({focused, color, size}) => {
             let iconName;
 
-            if (route.name === 'Home') {
-              iconName = focused ? 'home' : 'home-outline';
+            if (route.name === 'PlayListe') {
+              iconName = focused ? 'list' : 'list-outline';
             } else if (route.name === 'Favorite') {
               iconName = focused ? 'heart' : 'heart-outline';
             } else if (route.name === 'Settings') {
               iconName = focused ? 'settings' : 'settings-outline';
+            }else if (route.name === 'Music') {
+              iconName = focused ? 'musical-notes' : 'musical-notes-outline';
             }
 
             return <Ionicons name={iconName} size={size} color={color} />;
@@ -40,12 +44,14 @@ const AppNavigator = () => {
             fontWeight: 'bold',
           },
         })}>
-        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="PlayListe" component={PlayListe} />
         <Tab.Screen name="Favorite" component={Favorite} />
         <Tab.Screen name="Settings" component={Settings} />
+        <Tab.Screen name="Music" component={Music} />
+
       </Tab.Navigator>
     </NavigationContainer>
   );
 };
 
-export default AppNavigator;
+export default Navigator;

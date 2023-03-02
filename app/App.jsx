@@ -1,7 +1,7 @@
-import AppNavigator from './AppNavigator';
+import Navigator from './Navigator';
 
 function App() {
-  return <AppNavigator />;
+  return <Navigator />;
 }
 
 export default App;
